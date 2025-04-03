@@ -1,10 +1,9 @@
-
 import NavBar from "@/components/NavBar";
 import CourseCard from "@/components/CourseCard";
 import QuizCard from "@/components/QuizCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, HelpCircle, CheckCircle, Trophy } from "lucide-react";
+import { ArrowRight, BookOpen, HelpCircle, CheckCircle, Trophy, GraduationCap } from "lucide-react";
 
 // Mock data
 const featuredCourses = [
