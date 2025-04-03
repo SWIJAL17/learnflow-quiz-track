@@ -81,16 +81,16 @@ const quizzesData = [
 
 const Quizzes = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("");
-  const [statusFilter, setStatusFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("all-categories");
+  const [statusFilter, setStatusFilter] = useState("all-status");
 
   const categories = Array.from(new Set(quizzesData.map((quiz) => quiz.category)));
   
   const filteredQuizzes = quizzesData.filter((quiz) => {
     const matchesSearch = quiz.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           quiz.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = categoryFilter === "" || quiz.category === categoryFilter;
-    const matchesStatus = statusFilter === "" || 
+    const matchesCategory = categoryFilter === "all-categories" || quiz.category === categoryFilter;
+    const matchesStatus = statusFilter === "all-status" || 
                         (statusFilter === "completed" && quiz.completed) ||
                         (statusFilter === "not-completed" && !quiz.completed);
     
@@ -132,7 +132,7 @@ const Quizzes = () => {
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Categories</SelectItem>
+                  <SelectItem value="all-categories">All Categories</SelectItem>
                   {categories.map((category) => (
                     <SelectItem key={category} value={category}>
                       {category}
@@ -147,7 +147,7 @@ const Quizzes = () => {
                   <SelectValue placeholder="Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Status</SelectItem>
+                  <SelectItem value="all-status">All Status</SelectItem>
                   <SelectItem value="completed">Completed</SelectItem>
                   <SelectItem value="not-completed">Not Completed</SelectItem>
                 </SelectContent>
@@ -157,8 +157,8 @@ const Quizzes = () => {
               variant="outline"
               onClick={() => {
                 setSearchTerm("");
-                setCategoryFilter("");
-                setStatusFilter("");
+                setCategoryFilter("all-categories");
+                setStatusFilter("all-status");
               }}
             >
               Reset Filters
@@ -185,8 +185,8 @@ const Quizzes = () => {
                 className="mt-4"
                 onClick={() => {
                   setSearchTerm("");
-                  setCategoryFilter("");
-                  setStatusFilter("");
+                  setCategoryFilter("all-categories");
+                  setStatusFilter("all-status");
                 }}
               >
                 <Filter className="mr-2 h-4 w-4" />

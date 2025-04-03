@@ -102,8 +102,8 @@ const coursesData = [
 
 const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("");
-  const [levelFilter, setLevelFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("all-categories");
+  const [levelFilter, setLevelFilter] = useState("all-levels");
   const [currentTab, setCurrentTab] = useState("all");
 
   const categories = Array.from(new Set(coursesData.map((course) => course.category)));
@@ -111,8 +111,8 @@ const Courses = () => {
   const filteredCourses = coursesData.filter((course) => {
     const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           course.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = categoryFilter === "" || course.category === categoryFilter;
-    const matchesLevel = levelFilter === "" || course.level === levelFilter;
+    const matchesCategory = categoryFilter === "all-categories" || course.category === categoryFilter;
+    const matchesLevel = levelFilter === "all-levels" || course.level === levelFilter;
     const matchesTab = currentTab === "all" || 
                       (currentTab === "beginner" && course.level === "Beginner") ||
                       (currentTab === "intermediate" && course.level === "Intermediate") ||
@@ -156,7 +156,7 @@ const Courses = () => {
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Categories</SelectItem>
+                  <SelectItem value="all-categories">All Categories</SelectItem>
                   {categories.map((category) => (
                     <SelectItem key={category} value={category}>
                       {category}
@@ -171,7 +171,7 @@ const Courses = () => {
                   <SelectValue placeholder="Level" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Levels</SelectItem>
+                  <SelectItem value="all-levels">All Levels</SelectItem>
                   <SelectItem value="Beginner">Beginner</SelectItem>
                   <SelectItem value="Intermediate">Intermediate</SelectItem>
                   <SelectItem value="Advanced">Advanced</SelectItem>
@@ -182,8 +182,8 @@ const Courses = () => {
               variant="outline"
               onClick={() => {
                 setSearchTerm("");
-                setCategoryFilter("");
-                setLevelFilter("");
+                setCategoryFilter("all-categories");
+                setLevelFilter("all-levels");
                 setCurrentTab("all");
               }}
             >
