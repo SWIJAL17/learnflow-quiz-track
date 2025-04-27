@@ -67,7 +67,7 @@ const Index = () => {
       <NavBar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-elearning-primary to-elearning-secondary text-white py-16">
+      <section className="bg-gradient-to-r from-gray-800 to-gray-400 text-white py-16 rounded">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4 animate-fade-in">
@@ -78,12 +78,12 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: "300ms" }}>
               <Link to="/courses">
-                <Button size="lg" className="bg-white text-elearning-primary hover:bg-gray-100">
+                <Button size="lg" className="bg-white text-black hover:bg-gray-100">
                   Browse Courses
                 </Button>
               </Link>
               <Link to="/signup">
-                <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="text-black border-white hover:bg-gray-100">
                   Sign Up Free
                 </Button>
               </Link>
@@ -157,14 +157,14 @@ const Index = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-16 bg-elearning-primary text-white">
+      <section className="py-16 bg-gray-800 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Learning?</h2>
+          <h2 className="text-3xl font-bold mb-4">Learn anytime, grow every time. Your future is just one click away.</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Join thousands of students who are already learning new skills and advancing their careers.
+          Join thousands of students who are building valuable skills and advancing their careers. Learn from experts, grow with confidence, and take the next step toward your goals.
           </p>
           <Link to="/signup">
-            <Button size="lg" className="bg-white text-elearning-primary hover:bg-gray-100">
+            <Button size="lg" className="bg-white text-elearning-primary hover:bg-gray-100 ">
               Get Started Today
             </Button>
           </Link>
